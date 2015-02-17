@@ -1,7 +1,13 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+puts 'Clearing any existing Item data...'
+Item.destroy_all
+ 
+# Learn about how `find_or_create_by` works:
+#  http://apidock.com/rails/v4.0.2/ActiveRecord/Relation/find_or_create_by
+ 
+puts 'Adding item types...'
+ItemType.find_or_create_by!(name: 'Magazine Article')
+ItemType.find_or_create_by!(name: 'Book')
+ItemType.find_or_create_by!(name: 'Movie')
+ItemType.find_or_create_by!(name: 'TV Show')
+ 
+puts 'Done.'
