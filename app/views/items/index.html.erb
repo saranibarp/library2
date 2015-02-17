@@ -1,0 +1,19 @@
+<h1>Items</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Type</th>
+    <th>Image</th>
+    <th>Completed</th>
+  </tr>
+<% @items.each do |item| %>
+  <tr>
+    <td><%= item.title %></td>
+    <td><%= item.item_type.name %></td>
+    <td><%= image_tag(item.image_url) if !item.image_url.empty? %></td>
+    <td><%= 'YES' if item.completed? %></td>
+  </tr>  
+<% end %>
+
+</table>
