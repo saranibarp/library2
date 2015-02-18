@@ -9,4 +9,8 @@ class Item < ActiveRecord::Base
   def fetch_image
     update_attribute(:image_url, ImageFetcher.new.fetch(title))
   end
+
+  def mark_as_completed
+    update_attribute(:completed_on, Date.today)
+  end
 end

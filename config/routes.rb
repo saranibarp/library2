@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :items
+  resources :items do
+    get 'mark_as_completed', on: :member, as: :mark_as_completed
+  end
 
   root 'items#index'
   # The priority is based upon order of creation: first created -> highest priority.

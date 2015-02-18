@@ -1,6 +1,8 @@
 <h1>Items</h1>
 
+<br>
 <p><%= link_to 'New Item', new_item_path %></p>
+<br>
 
 <table>
   <tr>
@@ -8,18 +10,19 @@
     <th>Type</th>
     <th>Image</th>
     <th>Completed</th>
-    <th></th>
+    <th>Edit</th>
+    <th>Delete</th>
+    <th>Mark as Completed</th>
   </tr>
 <% @items.each do |item| %>
   <tr>
     <td><%= item.title %></td>
-    <td><%= item.item_type.name %></td>
-    <td><%= image_tag(item.image_url) if !item.image_url.nil? %></td>
-    <td><%= 'YES' if item.completed? %></td>
-    <td>
-      <%= link_to 'Edit', edit_item_path(item) %>&nbsp;
-      <%= link_to 'Delete', item_path(item), method: :delete %>
-    </td>
+    <td class='center'><%= item.item_type.name %></td>
+    <td class='center'><%= image_tag(item.image_url) if !item.image_url.nil? %></td>
+    <td class='center'><%= 'Yes' if item.completed? %></td>
+    <td><%= link_to 'Edit', edit_item_path(item) %></td>
+    <td><%= link_to 'Delete', item_path(item), method: :delete %></td>
+    <td><%= link_to 'Mark as completed', mark_as_completed_item_path(item), method: :mark_as_completed %></td>
   </tr>  
 <% end %>
 

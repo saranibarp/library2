@@ -19,7 +19,7 @@
 
   <div class='field'>
     <%= f.label :completed_on, 'When was it read/watched?' %>
-    <%= f.date_select :completed_on, start_year: 1990 %>
+    <%= f.date_select :completed_on, start_year: 1990, :include_blank => true, :default => nil %>
   </div>
   
   <div class='field'>

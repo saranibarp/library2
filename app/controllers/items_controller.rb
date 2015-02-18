@@ -39,6 +39,12 @@ class ItemsController < ApplicationController
     redirect_to items_path
   end
 
+  def mark_as_completed
+    @item = Item.find(params[:id])
+    @item.mark_as_completed
+    redirect_to items_path
+  end
+  
   private
 
   def item_params
