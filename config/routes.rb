@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :items do
-    get 'mark_as_completed', on: :member, as: :mark_as_completed
+    post 'mark_as_completed', on: :member
   end
 
   root 'items#index'

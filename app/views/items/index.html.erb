@@ -22,7 +22,7 @@
     <td class='center'><%= 'Yes' if item.completed? %></td>
     <td><%= link_to 'Edit', edit_item_path(item) %></td>
     <td><%= link_to 'Delete', item_path(item), method: :delete %></td>
-    <td><%= link_to 'Mark as completed', mark_as_completed_item_path(item), method: :mark_as_completed %></td>
+    <td><%= link_to_if(!item.completed?, 'Mark as completed', mark_as_completed_item_path(item), method: :mark_as_completed){} %></td>
   </tr>  
 <% end %>
 
