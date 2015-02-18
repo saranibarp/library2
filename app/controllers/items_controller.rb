@@ -11,6 +11,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
 
     if @item.save
+      @item.fetch_image
       redirect_to items_path
     else
       render :new
@@ -25,6 +26,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
 
     if @item.update_attributes(item_params)
+      @item.fetch_image
       redirect_to items_path
     else
       render :edit
