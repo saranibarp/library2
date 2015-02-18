@@ -1,18 +1,25 @@
 <h1>Items</h1>
 
+<p><%= link_to 'New Item', new_item_path %></p>
+
 <table>
   <tr>
     <th>Title</th>
     <th>Type</th>
     <th>Image</th>
     <th>Completed</th>
+    <th></th>
   </tr>
 <% @items.each do |item| %>
   <tr>
     <td><%= item.title %></td>
     <td><%= item.item_type.name %></td>
-    <td><%= image_tag(item.image_url) if !item.image_url.empty? %></td>
+    <td><%= image_tag(item.image_url) if !item.image_url.nil? %></td>
     <td><%= 'YES' if item.completed? %></td>
+    <td>
+      <%= link_to 'Edit', edit_item_path(item) %>&nbsp;
+      <%= link_to 'Delete', item_path(item), method: :delete %>
+    </td>
   </tr>  
 <% end %>
 

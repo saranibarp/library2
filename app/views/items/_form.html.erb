@@ -1,0 +1,28 @@
+<%= form_for @item do |f| %>
+  <div class='errors'>
+    <ul>
+      <% @item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>  
+    </ul>
+  </div>
+
+  <div class='field'>
+    <%= f.label :title, 'What is the title?' %>
+    <%= f.text_field :title %>
+  </div>
+  
+  <div class='field'>
+    <%= f.label :item_type_id, 'What type of item is this?' %>
+    <%= f.collection_select :item_type_id, ItemType.all, :id, :name, prompt: true %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :completed_on, 'When was it read/watched?' %>
+    <%= f.date_select :completed_on, start_year: 1990 %>
+  </div>
+  
+  <div class='field'>
+    <%= f.submit 'Save' %>
+  </div>
+<% end %>
