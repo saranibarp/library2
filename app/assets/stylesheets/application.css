@@ -58,3 +58,19 @@ th, td
 {
   margin: 20px 0 20px 0;
 }
+
+.errors, .flash-notice
+{
+  color: red;
+}
+
+header
+{
+  color: #CC0000;
+}
+
+footer
+{
+  text-align: center;
+  margin-top: 50px;
+}

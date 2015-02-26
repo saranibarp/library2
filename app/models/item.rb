@@ -1,6 +1,6 @@
 class Item < ActiveRecord::Base
   belongs_to :item_type
-  validates :title, presence: true
+  validates :title, presence: true, length: {minimum: 2}
 
   def completed?
     !completed_on.nil?

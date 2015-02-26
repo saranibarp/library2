@@ -8,7 +8,19 @@
 </head>
 <body>
 
+<header>
+  <h1>My Library App</h1>
+</header>
+
+<% flash.each do |key, msg| %>
+  <p class="flash-<%= key %>"><%= msg %></p>
+<% end %>
+
 <%= yield %>
+
+<footer>
+  <small>Created by me - 2015</small>
+</footer>
 
 </body>
 </html>

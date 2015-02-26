@@ -1,0 +1,11 @@
+<h1>Select an Item Type</h1>
+
+<% @item_types.each do |item_type| %>
+  <h3><%= item_type.name %></h3>
+
+  <p><%= link_to 'Add a new one', new_item_type_item_path(item_type) %></p>
+
+  <% item_type.items.each do |item| %>
+    <p><%= link_to item.title, item_type_item_path(item_type, item) %></p>
+  <% end %>
+<% end %>

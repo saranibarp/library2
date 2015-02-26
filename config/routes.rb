@@ -3,7 +3,11 @@ Rails.application.routes.draw do
     post 'mark_as_completed', on: :member
   end
 
-  root 'items#index'
+  resources :item_types, only: [:index, :show] do
+    resources :items
+  end
+
+  root 'item_types#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
